@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Time</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+	<script type="text/javascript">
+		window.onload = function (){
+				        nIntervId = setInterval(hour, 1000);
+		}
+		function hour(){
+			var timezone = new Date().toLocaleString();
+			timezone = timezone.slice(-8,-3);
+			var cond = timezone.slice(-5,-3);
+			document.getElementById("tim").innerHTML = timezone;
+			console.log(cond);
+			if (cond >= 19 || cond<5) {
+				document.getElementById("text").innerHTML = "BUENAS NOCHES";
+			}
+			else if(cond>=5 && cond <12){
+				document.getElementById("text").innerHTML = "BUENOS DÍAS";
+			}
+			else{
+				document.getElementById("text").innerHTML = "BUENAS TARDES";
+			}
+		}
+	</script>
+	<style type="text/css">
+		#rel{
+			background-color: grey;
+			width: 300px;
+			padding: 15px 10px;
+			text-decoration-color: black;
+			font-size: 90px;
+			border: solid 5px lightgrey;
+		}
+		#text{
+			font-size: 70px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<br>
+	<div id="rel" class="container text-center">
+		<div id="tim" class="row justify-content-center text-center">
+		</div>
+	</div>
+	<p id="text">
+	</p>
+</body>
+</html>
